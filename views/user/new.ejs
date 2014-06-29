@@ -1,0 +1,38 @@
+
+<div class="container">
+
+		
+
+	<form role="form" action="/user/create" method="POST" class="form-signin">
+		<% if(flash && flash.err) {%>
+			<ul class="alert alert-danger">
+		<% Object.keys(flash.err).forEach(function(error) { %>
+			<li><%- JSON.stringify(flash.err[error]) %></li>
+		<% }) %>
+			</ul>
+		<% } %>
+		<div class="form-group">
+			<label for="name">Name</label>
+			<input type="text" class="form-control" name="name" id="name" placeholder="Your name">
+		</div>
+		<div class="form-group">
+			<label for="title">Title</label>
+			<input type="text" class="form-control" name="title" id="title" placeholder="Your title ">
+		</div>
+		<div class="form-group">
+			<label for="email">Email address</label>
+			<input type="email" class="form-control" name="email" id="email" placeholder="Enter email">
+		</div>
+		<div class="form-group">
+			<label for="password">Password</label>
+			<input type="password" class="form-control" name="password" id="password" placeholder="Password">
+		</div>
+		<div class="form-group">
+			<label for="confirmation">Password</label>
+			<input type="password" class="form-control" name="confirmation" id="confirmation" placeholder="Password Comfirm">
+		</div>
+
+		<button type="submit" class="btn btn-default">Submit</button>
+		<input type="hidden" name="_csrf" value="<%= _csrf %>">
+	</form>
+</div>
